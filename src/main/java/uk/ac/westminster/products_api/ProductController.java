@@ -27,8 +27,10 @@ public class ProductController {
         return productService.getProductById(id).orElse(null);
     }
 
+    // Temporary: Product is abstract, so Jackson cannot build it from JSON.
+    // Proper fix comes in Lectures 6 and 7.
     @PostMapping("/products")
-    public Product addProduct(@RequestBody Product product) {
+    public Product addProduct(@RequestBody DigitalProduct product) {
         return productService.addProduct(product);
     }
 
